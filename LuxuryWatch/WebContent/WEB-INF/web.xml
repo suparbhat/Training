@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>LuxuryWatch</display-name>
+  <welcome-file-list>
+    <welcome-file>onLoad.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.sapient.controller.Login</servlet-class>
+    <init-param>
+      <param-name>isLogin</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewUser</display-name>
+    <servlet-name>NewUser</servlet-name>
+    <servlet-class>com.sapient.controller.NewUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewUser</servlet-name>
+    <url-pattern>/NewUser</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description></description>
+    <display-name>Checkout</display-name>
+    <servlet-name>Checkout</servlet-name>
+    <servlet-class>com.sapient.controller.Checkout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Checkout</servlet-name>
+    <url-pattern>/Checkout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OnLoad</display-name>
+    <servlet-name>OnLoad</servlet-name>
+    <servlet-class>com.sapient.controller.OnLoad</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OnLoad</servlet-name>
+    <url-pattern>/OnLoad</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddToCartController</display-name>
+    <servlet-name>AddToCartController</servlet-name>
+    <servlet-class>com.sapient.controller.AddToCartController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToCartController</servlet-name>
+    <url-pattern>/addcart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Cart</display-name>
+    <servlet-name>Cart</servlet-name>
+    <servlet-class>com.sapient.model.Cart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Cart</servlet-name>
+    <url-pattern>/Cart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductController</display-name>
+    <servlet-name>ProductController</servlet-name>
+    <servlet-class>com.sapient.controller.ProductController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductController</servlet-name>
+    <url-pattern>/prod</url-pattern>
+
+  </servlet-mapping>
+    <resource-ref>
+    <res-ref-name>jdbc/watchDB</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  
+   <servlet>
+  <servlet-name>Jersey</servlet-name>
+  <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+<init-param>
+<param-name>jersey.config.server.provider.packages</param-name>
+<param-value>com.sapient.webService</param-value>
+</init-param>
+<load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet-mapping>
+   <servlet-name>Jersey</servlet-name>
+   <url-pattern>/rest/*</url-pattern> 
+   </servlet-mapping>
+  
+   
+</web-app>
